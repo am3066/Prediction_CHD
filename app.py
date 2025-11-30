@@ -15,7 +15,7 @@ st.set_page_config(
 st.title("🩺 Application de prédiction du risque de maladie cardiaque (CHD)")
 st.write("""
 Cette application web a été **développée avec VS Code** et déployée avec **Streamlit**.
-Elle utilise un modèle de Machine Learning déjà entraîné et sauvegardé dans `Model.pkl`
+Elle utilise un modèle de Machine Learning déjà entraîné et sauvegardé dans `model.pkl`
 (pipeline : prétraitement + ACP + régression logistique) à partir du dataset *CHD.csv*.
 """)
 
@@ -24,7 +24,7 @@ Elle utilise un modèle de Machine Learning déjà entraîné et sauvegardé dan
 
 @st.cache_resource
 def load_model():
-    model = joblib.load("Model.pkl")  # même nom que dans le script d'entraînement
+    model = joblib.load("model.pkl")  # même nom que dans le script d'entraînement
     return model
 
 model = load_model()
@@ -69,7 +69,7 @@ if submitted:
     st.write("### Données saisies")
     st.dataframe(input_df)
     
-    # Utiliser le pipeline complet sauvegardé dans Model.pkl
+    # Utiliser le pipeline complet sauvegardé dans model.pkl
     # Il contient déjà : preprocessor (num + cat) + PCA + LogisticRegression
     proba_chd = model.predict_proba(input_df)[0, 1]  # probabilité CHD = 1
     pred_chd = model.predict(input_df)[0]
