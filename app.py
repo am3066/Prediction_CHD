@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import joblib
+from imblearn.pipeline import Pipeline as ImbPipeline
+from imblearn.over_sampling import SMOTE
 
 # Configuration de la page
 
