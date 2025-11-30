@@ -149,7 +149,7 @@ for pipeline, param_grid, name in grids:
 
 # --- 6. Sauvegarde du Meilleur Modèle ---
 print(f"\n\n🏆 Meilleur modèle sélectionné : {best_name} avec un Recall de {best_score:.4f}")
-model_filename = 'model.pkl'
+model_filename = 'Model.pkl'
 
 # Sauvegarde de l'intégralité du pipeline optimisé dans un fichier .pkl
 with open(model_filename, 'wb') as file:
